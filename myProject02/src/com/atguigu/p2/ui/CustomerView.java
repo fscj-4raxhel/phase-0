@@ -67,18 +67,65 @@ public class CustomerView {
 		System.out.println("---------------------修改客户---------------------");
 		int id = 0;
 		Customer cust = null;
-		for(;;) {
+		for (;;) {
 			id = CMUtility.readInt();
 			cust = list.getCustomer(id - 1);
 			if (cust != null) {
 				break;
 			}
 		}
-		//处理客户吧
+		// Modify Customer Information
+		System.out.println("姓名(" + cust.getName() + "):");
+		String name = CMUtility.readString(10, cust.getName());
+		System.out.println("性别(" + cust.getGender() + "):");
+		char gender = CMUtility.readChar(cust.getGender());
+		System.out.println("年龄(" + cust.getAge() + "):");
+		int age = CMUtility.readInt(cust.getAge());
+		System.out.println("电话(" + cust.getPhone() + "):");
+		String phone = CMUtility.readString(10, cust.getPhone());
+		System.out.println("邮箱(" + cust.getName() + "):");
+		String email = CMUtility.readString(30, cust.getEmail());
 
+		Customer newCust = new Customer(name, gender, age, phone, email);
+		boolean replaceSuccess = list.replaceCustomer(id - 1, newCust);
+		if (replaceSuccess) {
+			System.out.println("---------------------修改完成---------------------");
+
+		} else {
+			System.out.println("----------无法找到指定客户,修改失败--------------");
+		}
 	}
 
 	public void deleteCustomer() {
+		System.out.println("---------------------删除客户---------------------");
+		int id = 0;
+		Customer cust = null;
+		for (;;) {
+			System.out.print("请选择待删除客户编号(-1退出)：");
+			id = CMUtility.readInt();
+			if (id == -1) {
+				return;
+			}
+			// 校验用户输入值知否合理,尝试把那个位置上的Customer 对象拿出来
+			cust = list.getCustomer(id - 1);
+			if (cust != null)
+				break;
+			else {
+				System.out.println("无法找到指定客户！");
+			}
+		}
+		//删除操作的执行，通过CustomerList提供的服务
+		System.out.print("确认是否删除(Y/N)：");
+		char deleteCust = CMUtility.readChar();
+		if (deleteCust == 'Y') {
+			boolean deleteSuccess = list.deleteCustomer(id - 1);
+			if (deleteSuccess) {
+				System.out.println("---------------------删除完成---------------------");
+
+			} else {
+				System.out.println("----------无法找到指定客户,删除失败--------------");
+			}
+		}
 
 	}
 
