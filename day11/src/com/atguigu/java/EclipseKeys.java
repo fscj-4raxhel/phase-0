@@ -1,8 +1,5 @@
 package com.atguigu.java;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 /*
  * 1. 补全代码声明 alt + /
  * 2. 快速修复 command + 1 
