@@ -4,6 +4,19 @@ import org.junit.Test;
 
 public class StringTest {
     @Test
+    public void test4(){
+
+        String s1 = "javaEE";
+        String s2 = "hadoop";
+        String s3 = "javaEEhadoop";
+
+        final String s4 = "javaEE";
+        String s5 = s4 + "hadoop";
+        System.out.println(s5 == s3);
+
+
+    }
+    @Test
     public void test3(){
         String s1 = "javaEE";
         String s2 = "hadoop";
