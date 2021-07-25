@@ -19,3 +19,13 @@ class ProxyClothFactory implements ClothFactory{
         System.out.println("Proxy Factory wrapping up");
     }
 }
+
+class NikeClothFactory implements ClothFactory{
+
+    @Override
+    public void produceCloth() {
+
+        System.out.println("Nike factory producing clothes");
+    }
+}
+
