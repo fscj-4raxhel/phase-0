@@ -53,5 +53,7 @@ public class StreamAPITest1 {
         l1.add(l2);
 
         System.out.println(l1);
+
+        Integer.compare()
     }
 }
